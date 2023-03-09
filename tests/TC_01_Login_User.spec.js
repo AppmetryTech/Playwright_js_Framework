@@ -1,5 +1,5 @@
-//import { test, expect } from '@playwright/test';
-const { test, expect } = require('@playwright/test');
+
+const { test } = require('@playwright/test');
 const { POManager } = require('../pages/POManager');
 
 
@@ -14,6 +14,7 @@ test('TC_01 Login User with correct email and password', async ({ page }) => {
     const cvc = "908"
     const expiryMonth = "02"
     const expiryYear = "2029"
+    const confirmationMessage = "Congratulations! Your order has been confirmed!";
 
     const poManager = new POManager(page);
     const loginpage = poManager.getLoginPage();
@@ -21,6 +22,7 @@ test('TC_01 Login User with correct email and password', async ({ page }) => {
     const cartPage = poManager.getCartPage();
     const checkoutpage = poManager.getCheckOutPage();
     const paymentpage = poManager.getPaymentPage();
+    const confirmationpage = poManager.getConfirmationPage();
 
     await loginpage.navigateToUrl("https://automationexercise.com/");
     await loginpage.validateLogin("test_chetan@gmail.com", "Test@1234", expectedUserName);
@@ -33,6 +35,7 @@ test('TC_01 Login User with correct email and password', async ({ page }) => {
     await paymentpage.enterPaymentDetail(nameOnCard, cardNumber, cvc, expiryMonth, expiryYear);
     await paymentpage.clickOnPlaceOrder();
 
+    await confirmationpage.verifyOrderConfirmation(confirmationMessage)
 
 
 })

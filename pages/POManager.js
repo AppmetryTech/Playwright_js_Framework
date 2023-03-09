@@ -3,6 +3,7 @@ const { DashboardPage } = require('./DashboardPage');
 const { CartPage } = require('./CartPage');
 const { CheckOutPage } = require('./CheckOutPage');
 const { PaymentPage } = require('./PaymentPage');
+const { ConfimationPage } = require('./ConfirmationPage');
 
 class POManager {
     constructor(page) {
@@ -12,6 +13,7 @@ class POManager {
         this.cartpage = new CartPage(this.page);
         this.CheckOutPage = new CheckOutPage(this.page);
         this.paymentPage = new PaymentPage(this.page);
+        this.confirmationPage = new ConfimationPage(this.page)
 
 
 
@@ -35,6 +37,10 @@ class POManager {
 
     getPaymentPage() {
         return this.paymentPage;
+    }
+
+    getConfirmationPage() {
+        return this.confirmationPage;
     }
 
 
