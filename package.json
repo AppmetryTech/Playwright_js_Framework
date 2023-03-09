@@ -1,0 +1,28 @@
+{
+  "name": "playwright_js_web_api_visual_pom",
+  "version": "1.0.0",
+  "description": "This project uses Playwright and the Page Object Model (POM) framework to perform end-to-end testing on web applications. It includes web testing, API testing and visual testing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "single": "npx playwright test TC_01_Login_User.spec.js --project=chromium",
+    "multiBrowser": "npx playwright test SauceLab_login.spec.js",
+    "report": "npx playwright show-report",
+    "locator": "npx playwright codegen",
+    "debug": "npx playwright test TC_01_Login_User.spec.js --debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MotghareChetan/playwright_JS_Web_API_Visual_pom.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MotghareChetan/playwright_JS_Web_API_Visual_pom/issues"
+  },
+  "homepage": "https://github.com/MotghareChetan/playwright_JS_Web_API_Visual_pom#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.31.2"
+  }
+}
