@@ -52,7 +52,7 @@ module.exports = defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         headless: false,
-        screenshot: 'only-on-failure',
+        screenshot: 'on',
         viewport: { width: 1536, height: 792 }
       },
     },

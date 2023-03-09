@@ -10,6 +10,7 @@ class LoginPage {
         this.clickLogin = page.locator("button[data-qa='login-button']");
         this.loginUserName = page.locator("//ul[@class='nav navbar-nav']//b[1]");
         this.logoutbtn = page.getByRole('link', { name: ' Logout' });
+        this.logo = page.locator("img[alt='Website for automation practice']");
 
     }
 
@@ -30,6 +31,10 @@ class LoginPage {
 
     async logOut() {
         await this.logoutbtn.click();
+    }
+
+    async validateLogo() {
+        expect(await this.logo.screenshot()).toMatchSnapshot('test_practice_logo.png');
     }
 
 }
