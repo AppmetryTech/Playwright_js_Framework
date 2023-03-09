@@ -9,7 +9,7 @@ class LoginPage {
         this.password = page.locator("input[type='password']");
         this.clickLogin = page.locator("button[data-qa='login-button']");
         this.loginUserName = page.locator("//ul[@class='nav navbar-nav']//b[1]");
-        // this.logoutbtn = page.getByRole('link', { name: ' Logout' });
+        this.logoutbtn = page.getByRole('link', { name: ' Logout' });
 
     }
 
@@ -26,6 +26,10 @@ class LoginPage {
         expect(actualUsername).toContain(userName)
 
 
+    }
+
+    async logOut() {
+        await this.logoutbtn.click();
     }
 
 }
