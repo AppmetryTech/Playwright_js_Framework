@@ -18,7 +18,7 @@ class DashboardPage {
         // console.log(titles);
         const count = await this.products.count();
         console.log("No of Product -->" + count);
-        for (let i = 0; i < count; ++i){
+        for (let i = 0; i < count; ++i) {
             if (await this.products.nth(i).locator("//p").textContent() === productName) {
                 console.log(await this.products.nth(i).locator("//p").textContent())
                 //add to cart
@@ -28,6 +28,10 @@ class DashboardPage {
                 break;
             }
         }
+
+    }
+
+    async navigateToCart() {
         await this.viewCart.click();
     }
 
