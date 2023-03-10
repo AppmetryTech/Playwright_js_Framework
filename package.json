@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/MotghareChetan/playwright_JS_Web_API_Visual_pom#readme",
   "devDependencies": {
-    "@playwright/test": "^1.31.2"
+    "@playwright/test": "^1.31.2",
+    "allure-playwright": "^2.1.0"
   }
 }
