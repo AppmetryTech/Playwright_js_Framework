@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "single": "npx playwright test TC_01_Login_User.spec.js --project=chromium",
+    "single": "npx playwright test TC_01_Login_User.spec.js",
     "multiBrowser": "npx playwright test SauceLab_login.spec.js",
+    "api":"npx playwright test test_api.spec.js",
     "report": "npx playwright show-report",
     "locator": "npx playwright codegen https://automationexercise.com",
     "debug": "npx playwright test TC_01_Login_User.spec.js --debug"

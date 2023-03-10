@@ -41,6 +41,7 @@ module.exports = defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
+    channel: 'firefox',
     actionTimeout: 0,
     launchOptions: {
       slowMo: 500
@@ -54,7 +55,7 @@ module.exports = defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
+    /*{
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
@@ -62,30 +63,34 @@ module.exports = defineConfig({
         screenshot: 'on',
         viewport: { width: 1536, height: 792 }
       },
+    },*/
+
+    {
+      name: 'firefox',
+      use: {
+        ...devices['Desktop Firefox'],
+        headless: false,
+        viewport: { width: 1536, height: 792 },
+        ignoreHTTPSErrors: true,
+        acceptDownloads: true,
+        screenshot: 'only-on-failure',
+        video: `retain-on-failure`,
+        trace: `retain-on-failure`,
+      },
     },
 
-    /* {
-       name: 'firefox',
-       use: {
-         ...devices['Desktop Firefox'],
-         headless: false,
-         screenshot: 'only-on-failure',
-         viewport: { width: 1536, height: 792 }
-       },
-     },
- 
-     {
-       name: 'webkit',
-       use: {
-         ...devices['Desktop Safari'],
-         headless: false,
-         screenshot: 'only-on-failure',
-         viewport: { width: 1536, height: 792 }
-       },
-     },
- 
-     /* Test against mobile viewports. */
-   /* {
+    /*{
+      name: 'webkit',
+      use: {
+        ...devices['Desktop Safari'],
+        headless: false,
+        screenshot: 'only-on-failure',
+        viewport: { width: 1536, height: 792 }
+      },
+    },*/
+
+    /* Test against mobile viewports. */
+    /*{
       name: 'Mobile Chrome',
       use: {
         ...devices['iPhone 13 Pro Max'],
