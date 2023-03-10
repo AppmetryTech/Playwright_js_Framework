@@ -57,31 +57,35 @@ module.exports = defineConfig({
       },
     },
 
-   /* {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-        headless: false,
-        screenshot: 'only-on-failure',
-        viewport: { width: 1536, height: 792 }
-      },
-    },
-
+    /* {
+       name: 'firefox',
+       use: {
+         ...devices['Desktop Firefox'],
+         headless: false,
+         screenshot: 'only-on-failure',
+         viewport: { width: 1536, height: 792 }
+       },
+     },
+ 
+     {
+       name: 'webkit',
+       use: {
+         ...devices['Desktop Safari'],
+         headless: false,
+         screenshot: 'only-on-failure',
+         viewport: { width: 1536, height: 792 }
+       },
+     },
+ 
+     /* Test against mobile viewports. */
     {
-      name: 'webkit',
+      name: 'Mobile Chrome',
       use: {
-        ...devices['Desktop Safari'],
+        ...devices['iPhone 13 Pro Max'],
         headless: false,
-        screenshot: 'only-on-failure',
-        viewport: { width: 1536, height: 792 }
+        screenshot: 'on'
       },
     },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
     // {
     //   name: 'Mobile Safari',
     //   use: { ...devices['iPhone 12'] },
