@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "single": "npx playwright test TC_01_Login_User.spec.js",
+    "single": "npx playwright test login_state.spec.js",
     "multiBrowser": "npx playwright test SauceLab_login.spec.js",
     "api":"npx playwright test test_api.spec.js",
     "report": "npx playwright show-report",
