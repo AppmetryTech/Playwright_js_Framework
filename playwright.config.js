@@ -41,7 +41,7 @@ module.exports = defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
-    channel: 'firefox',
+    channel: 'chrome',
     actionTimeout: 0,
     launchOptions: {
       slowMo: 500
@@ -55,7 +55,7 @@ module.exports = defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    /*{
+    {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
@@ -63,9 +63,9 @@ module.exports = defineConfig({
         screenshot: 'on',
         viewport: { width: 1536, height: 792 }
       },
-    },*/
+    },
 
-    {
+    /*{
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
