@@ -10,7 +10,8 @@
     "api":"npx playwright test test_api.spec.js",
     "report": "npx playwright show-report",
     "locator": "npx playwright codegen https://automationexercise.com",
-    "debug": "npx playwright test TC_01_Login_User.spec.js --debug"
+    "debug": "npx playwright test TC_01_Login_User.spec.js --debug",
+    "task":"npx playwright test videoCarousel.spec.js"
   },
   "repository": {
     "type": "git",
