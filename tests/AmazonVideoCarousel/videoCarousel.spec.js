@@ -39,7 +39,7 @@ test('amazon prime login', async ({ browser }) => {
     console.log("Items in Carousel --> " + await items.count());
     console.log(items)
     const carouselItems = await page.$$('//ul[@class="_70Gje9 Jy2YJ6"]//li//section//picture//img');
-    page.pause()
+    // page.pause()
 
     // wait for each live window to appear and extract the alt text
     const liveWindows = await page.$$('//ul[@class="jVpjZD qYc0AS"]//li');
@@ -50,27 +50,35 @@ test('amazon prime login', async ({ browser }) => {
     let currentDate = new Date();;
     let startTime;
     let endTime;
-    
+    const x = 1491; // next button co-ordinate
+    const y = 281; // 
+
+
+
+
+    startTime = currentDate.getMilliseconds();
     for (let i = 0; i < liveWindows.length; i++) {
         await page.waitForSelector(`//li[@class="cIbiJK Dz+gPK"]`)
         const activeWindow = await activeWindows.getAttribute("data-testid")
         //console.log(activeWindow)
         if (activeWindow === "active-dot") {
 
-            startTime = currentDate.getMilliseconds();
+            startTime = currentDate.getTime();
             console.log(await carouselItems[i].getAttribute('alt'))
+            await page.mouse.move(x, y);
             //await page.hover(`//button[@aria-label="next title"]`)
             // await page.waitForSelector(`//button[@aria-label="next title"]`)
 
 
             await page.locator(`//button[@aria-label="next title"]`).click()
-            endTime = currentDate.getMilliseconds();
+
+
         }
     }
 
 
-    console.log("start time " + startTime + " end time " + endTime)
-    console.log("Total Time " + number(endTime) - number(startTime))
+
+
 
 
     /* for (let i = 0; i < liveWindows.length; i++) {
