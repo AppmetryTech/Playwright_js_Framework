@@ -55,22 +55,20 @@ test('amazon prime login', async ({ browser }) => {
 
     for (let i = 0; i < liveWindows.length; i++) {
         await page.waitForSelector(`//li[@class="cIbiJK Dz+gPK"]`)
-        const activeWindow = await activeWindows.getAttribute("data-testid")
+        //const activeWindow = await activeWindows.getAttribute("data-testid")
         //console.log(activeWindow)
-        if (activeWindow === "active-dot") {
+        //if (activeWindow === "active-dot") {
+        const movieTitle = await carouselItems[i].getAttribute('alt')
+        await page.mouse.move(x, y);
+        await page.locator(`//button[@aria-label="next title"]`).click()
+        const currentTime = new Date().getTime();
+        const timeDifference = currentTime - previousTime;
+        console.log(`Time taken to scroll: ${movieTitle} is ${timeDifference} ms`);
+
+        previousTime = currentTime;
 
 
-            console.log(await carouselItems[i].getAttribute('alt'))
-            await page.mouse.move(x, y);
-            await page.locator(`//button[@aria-label="next title"]`).click()
-            const currentTime = new Date().getTime();
-            const timeDifference = currentTime - previousTime;
-            console.log(`Time taken to scroll: ${timeDifference} ms`);
-
-            previousTime = currentTime;
-
-
-        }
+        // }
     }
 
 
