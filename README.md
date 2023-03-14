@@ -1,23 +1,39 @@
-# playwright_JS_Web_API_Visual_pom
-# E2E Playwright JavaScript Automation
+Playwright_JS_Web_API_Visual_POM
 
-## Overview
-This project uses Playwright and the Page Object Model (POM) framework to perform end-to-end testing on web applications. It includes web testing, API testing and visual testing.
+👨‍💻 Automated end-to-end testing using Playwright, Page Object Model (POM) framework, and JavaScript for web applications. Includes visual comparison testing, API testing, and functional testing.
 
-## Page Object Model (POM) Framework
-The POM framework is used to organize test code and make it more maintainable. It involves creating a separate class for each page in the application being tested, with methods representing the actions that can be performed on that page.
+🧰 Technologies
 
-##🔍 Visual Comparison Testing
-This project uses Playwright's visual testing capabilities to compare screenshots of the expected and actual states of the web pages being tested. Visual comparison testing helps to ensure that UI changes do not introduce unexpected visual regressions.
+Playwright
 
-##🧪 API Testing
-In addition to web testing, this project includes API testing to verify the functionality of the backend services that support the web application being tested. This is achieved using tools such as Axios and Chai, and by sending requests to the API endpoints and verifying the responses.
+JavaScript
 
-##✅ Functional Testing
-Functional testing ensures that the web application being tested meets the functional requirements specified in the project requirements. This project uses the POM framework to organize test code into separate classes for each page, with methods representing the actions that can be performed on that page. This helps to ensure that the test code is maintainable and easy to understand.
+GitHub Actions
 
-##🔢 Test Cases with Multi-Data Parameterization
-This project includes test cases with multidata parameterization, which allows the same test code to be used to test different input values. This is achieved using test data files that contain input values for each test case, which are then used to execute the same test code with different data values.
+🚀 Features
 
-##🤖 Automation using GitHub Actions
-This project uses GitHub Actions to automate the testing process. GitHub Actions allow the test code to be executed automatically whenever changes are made to the codebase. This helps to ensure that any changes made to the codebase do not introduce unexpected regressions or break existing functionality.
+🔍 Visual Comparison Testing: 
+Compare screenshots of the expected and actual states of the web pages being tested to ensure that UI changes do not introduce unexpected visual regressions.
+
+🧪 API Testing:
+ Verify the functionality of the backend services that support the web application being tested.
+
+✅ Functional Testing:
+ Ensure that the web application being tested meets the functional requirements specified in the project requirements using POM framework to organize test code.
+
+🔢 Test Cases with Multi-Data Parameterization:
+ Use test data files to execute the same test code with different data values.
+
+🤖 Automation using GitHub Actions: 
+Automate the testing process with GitHub Actions to ensure that any changes made to the codebase do not introduce unexpected regressions or break existing functionality.
+
+🛠️ Usage
+
+To run the tests:
+
+
+Clone the repository.
+
+Install dependencies using npm install.
+
+Run the tests using npm run test.
