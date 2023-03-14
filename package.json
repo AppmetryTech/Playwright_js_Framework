@@ -7,12 +7,12 @@
     "test": "npx playwright test",
     "single": "npx playwright test login_state.spec.js",
     "multiBrowser": "npx playwright test SauceLab_login.spec.js",
-    "api":"npx playwright test test_api.spec.js",
+    "api": "npx playwright test test_api.spec.js",
     "report": "npx playwright show-report",
     "locator": "npx playwright codegen https://automationexercise.com",
     "debug": "npx playwright test TC_01_Login_User.spec.js --debug",
-    "task":"npx playwright test videoCarousel.spec.js",
-    "multidata":"npx playwright test multi_data_test.spec.js"
+    "task": "npx playwright test videoCarousel.spec.js",
+    "multidata": "npx playwright test multi_data_test.spec.js"
   },
   "repository": {
     "type": "git",
@@ -28,5 +28,8 @@
   "devDependencies": {
     "@playwright/test": "^1.31.2",
     "allure-playwright": "^2.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
   }
 }
