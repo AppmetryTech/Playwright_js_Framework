@@ -1,11 +1,12 @@
 // global-setup.js
-const { firefox } = require('@playwright/test');
-import dotenv from "dotenv"
+const { firefox, chromium } = require('@playwright/test');
+//import dotenv from "dotenv"
 
 module.exports = async config => {
   const { baseURL, storageState } = config.projects[0].use;
-  const browser = await firefox.launch();
-  const page = await browser.newPage();
+  const browser = await chromium.launch();
+  const context = await browser.newContext();
+  const page = await context.newPage();
 
 
   try {
