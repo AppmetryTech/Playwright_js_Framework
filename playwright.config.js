@@ -1,5 +1,8 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 /**
  * Read environment variables from file.
@@ -12,6 +15,8 @@ const { defineConfig, devices } = require('@playwright/test');
  */
 module.exports = defineConfig({
   testDir: './tests',
+  globalSetup: require.resolve('./global-setup'),
+
   /* Maximum time one test can run for. */
   timeout: 90 * 1000,
   expect: {
@@ -40,8 +45,10 @@ module.exports = defineConfig({
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    baseURL: 'https://automationexercise.com/',
+   // storageState: 'state.json',
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
-    channel: 'chrome',
+    channel: 'firefox',
     actionTimeout: 0,
     launchOptions: {
       slowMo: 500
@@ -60,17 +67,20 @@ module.exports = defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         headless: false,
+        storageState: 'state.json',
         screenshot: 'on',
         viewport: { width: 1536, height: 792 },
-        video:`on`
+        video: `on`,
+
       },
     },
 
-    /*{
+    {
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
         headless: false,
+        storageState: 'state.json',
         viewport: { width: 1536, height: 792 },
         ignoreHTTPSErrors: true,
         acceptDownloads: true,
