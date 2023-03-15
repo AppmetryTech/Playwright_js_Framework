@@ -18,7 +18,7 @@ module.exports = defineConfig({
   globalSetup: require.resolve('./global-setup'),
 
   /* Maximum time one test can run for. */
-  timeout: 90 * 1000,
+  timeout: 40 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -51,7 +51,7 @@ module.exports = defineConfig({
     //channel: 'firefox',
     actionTimeout: 0,
     launchOptions: {
-      slowMo: 500
+      slowMo: 200
     },
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
@@ -72,23 +72,24 @@ module.exports = defineConfig({
         viewport: { width: 1536, height: 792 },
         video: `on`,
 
+
       },
     },
 
-    {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-        headless: false,
-        storageState: 'state.json',
-        viewport: { width: 1536, height: 792 },
-        ignoreHTTPSErrors: true,
-        acceptDownloads: true,
-        screenshot: 'only-on-failure',
-        video: `retain-on-failure`,
-        trace: `retain-on-failure`,
-      },
-    },
+    /*  {
+        name: 'firefox',
+        use: {
+          ...devices['Desktop Firefox'],
+          headless: false,
+          storageState: 'state.json',
+          viewport: { width: 1536, height: 792 },
+          ignoreHTTPSErrors: true,
+          acceptDownloads: true,
+          screenshot: 'only-on-failure',
+          video: `retain-on-failure`,
+          trace: `retain-on-failure`,
+        },
+      },*/
 
     /*{
       name: 'webkit',

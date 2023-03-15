@@ -13,7 +13,7 @@
     "debug": "npx playwright test TC_01_Login_User.spec.js --debug",
     "task": "npx playwright test videoCarousel.spec.js",
     "multidata": "npx playwright test multi_data_test.spec.js",
-    "globalSet":"npx playwright test multi_env.spec.js"
+    "globalSet":"npx playwright test TC_06_Verify_contactUsForm.spec.js"
   },
   "repository": {
     "type": "git",
