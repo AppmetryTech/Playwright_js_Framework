@@ -18,7 +18,7 @@ module.exports = defineConfig({
   globalSetup: require.resolve('./global-setup'),
 
   /* Maximum time one test can run for. */
-  timeout: 40 * 1000,
+  timeout: 70 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -51,7 +51,7 @@ module.exports = defineConfig({
     //channel: 'firefox',
     actionTimeout: 0,
     launchOptions: {
-      slowMo: 200
+      slowMo: 1000
     },
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',

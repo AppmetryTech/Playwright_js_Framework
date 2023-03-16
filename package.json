@@ -13,7 +13,7 @@
     "debug": "npx playwright test TC_01_Login_User.spec.js --debug",
     "task": "npx playwright test videoCarousel.spec.js",
     "multidata": "npx playwright test multi_data_test.spec.js",
-    "globalSet":"npx playwright test TC_06_Verify_contactUsForm.spec.js"
+    "globalSet": "npx playwright test TC_08_Verify_All_Products_and_product_detail_page.spec.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,8 @@
     "allure-playwright": "^2.1.0"
   },
   "dependencies": {
+    "@cliqz/adblocker-playwright": "^1.26.2",
+    "cross-fetch": "^3.1.5",
     "dotenv": "^16.0.3"
   }
 }

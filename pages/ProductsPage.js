@@ -1,25 +1,57 @@
 // @ts-check
 const { expect } = require('@playwright/test');
 
-class ProductPage {
+class ProductsPage {
 
-    constructor(page) {
+    constructor(page, request) {
         this.page = page;
-        this.ClickOnProducts = page.getByRole('link', { name: ' Products' });
+        this.request = request;
+        // this.ClickOnProducts = page.getByRole('link', { name: ' Products' });
+        this.ClickOnProducts = page.getByText("Products");
         this.products = page.locator("//div[@id='cartModal']/following-sibling::div");
-       /* this. = page.locator('.choose > .nav > li > a').first().click();
-        this. = page.getByRole('heading', { name: 'Blue Top' }).click();
-        this. = page.getByText('Category: Women > Tops').click();
-        this. = page.getByRole('img', { name: 'ecommerce website products' }).nth(2).click();
-        this. = page.getByText('Rs. 500').click();
-        this. = page.getByText('Availability:').click();
-        this. = page.getByText('Availability: In Stock').click();
-        this. = page.getByText('Condition:').click();
-        this. = page.getByText('Condition: New').click();
-        this. = page.getByText('Brand:').click();
-        this. = page.getByText('Brand: Polo').click();
-        this. = page.getByRole('img', { name: 'ecommerce website products' }).first().click();*/
+        this.saleBanner = page.locator("#sale_image");
+        this.productName = page.locator("//div[@class='productinfo text-center']//p")
+    }
+
+    async navigateToProductsPage() {
+        await this.page.goto("https://automationexercise.com/products");
+
 
     }
 
+    async validateSaleBanner() {
+        await this.saleBanner.waitFor();
+
+        expect(await this.saleBanner.screenshot()).toMatchSnapshot('VisualTestData/sale_banner.jpg');
+
+    }
+
+    async validateProductCount() {
+        const allproducts = await this.products.count();
+        console.log("Number Of Present --> " + allproducts)
+        expect(allproducts).toBe(34)
+    }
+
+    async validateData(apiData) {
+
+        const rowText = await this.productName.nth(3).textContent();
+        console.log(rowText);
+        //const apiItem = await RespBody.products[0].name;
+        // console.log("UI TEXT -->   API TEXT --> " + apiItem)
+        const productCount = await this.productName.count();
+        console.log("ProductCount --> " + productCount)
+
+        for (let i = 0; i < productCount; i++) {
+            const apiItem = await apiData.products[i].name;
+            const rowText = await this.productName.nth(i).textContent();
+            // console.log(" **UI TEXT --> " + rowText + " **API TEXT --> " + apiItem)
+            console.log(`--UI TEXT-- ${rowText}  --API TEXT--  ${apiItem}`)
+            expect(rowText).toBe(apiItem);
+        }
+    }
+
+
+
 }
+
+module.exports = { ProductsPage }

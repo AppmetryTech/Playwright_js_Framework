@@ -7,9 +7,14 @@ const apiActions = new APIActions();
 
 test(`@API getAllProductList`, async ({ request }) => {
     const responseList = await request.get("https://automationexercise.com/api/productsList");
+    
+   
     expect(await responseList.status()).toBe(200);
     expect(await responseList.ok()).toBeTruthy();
     const RespBody = JSON.parse(await responseList.text());
+
+   
+
     const name = await RespBody.products[0].name;
     console.log("NAME --> " + name)
 
