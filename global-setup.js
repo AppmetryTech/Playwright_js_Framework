@@ -1,7 +1,22 @@
 // global-setup.js
 const { firefox, chromium } = require('@playwright/test');
 //import dotenv from "dotenv"
+import path from "path";
 
+
+
+/*export const createBrowserContext = async () => {
+  // assuming your extension is built to the 'public' directory	
+  const pathToExtension = path.join(__dirname, './public')	
+  const userDataDir = '/tmp/test-user-data-dir'	
+  const browserContext = await chromium.launchPersistentContext(		
+    userDataDir,	
+    {	
+      headless: false,	
+      args: [`--disable-extensions-except=${pathToExtension}`],	
+      ignoreDefaultArgs: ['--disable-component-extensions-with-background-pages'],	
+    }
+)}*/
 module.exports = async config => {
   const { baseURL, storageState } = config.projects[0].use;
   const browser = await chromium.launch();

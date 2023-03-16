@@ -51,7 +51,9 @@ module.exports = defineConfig({
     //channel: 'firefox',
     actionTimeout: 0,
     launchOptions: {
-      slowMo: 1000
+      slowMo: 2000,
+      devtools: true,
+     
     },
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',

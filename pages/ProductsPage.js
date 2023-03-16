@@ -11,6 +11,11 @@ class ProductsPage {
         this.products = page.locator("//div[@id='cartModal']/following-sibling::div");
         this.saleBanner = page.locator("#sale_image");
         this.productName = page.locator("//div[@class='productinfo text-center']//p")
+        this.viewProduct = page.locator("//div[@class='choose']//a")
+        this.adsClose = page.locator("//div[@class='ns-vwpk1-e-5 close-button']");
+        this.dressName = page.locator("//div[@class='product-information']//h2");
+        this.price = page.locator("//div[@class='product-information']//span");
+        this.brandName = page.locator("//b[text()='Brand:']");
     }
 
     async navigateToProductsPage() {
@@ -33,11 +38,6 @@ class ProductsPage {
     }
 
     async validateData(apiData) {
-
-        const rowText = await this.productName.nth(3).textContent();
-        console.log(rowText);
-        //const apiItem = await RespBody.products[0].name;
-        // console.log("UI TEXT -->   API TEXT --> " + apiItem)
         const productCount = await this.productName.count();
         console.log("ProductCount --> " + productCount)
 
@@ -50,7 +50,29 @@ class ProductsPage {
         }
     }
 
+    async clickOnViewProduct(ProductName) {
 
+        const count = await this.productName.count();
+        console.log(`view product count ${await this.viewProduct.count()}`)
+        console.log("No of Product -->" + count);
+        for (let i = 0; i < count; ++i) {
+            if (await this.productName.nth(i).textContent() === ProductName) {
+                //  console.log(await this.products.nth(i).locator("//p").textContent())
+                //add to cart
+                await this.page.waitForLoadState()
+                await this.viewProduct.nth(i).click();
+                await this.page.goto('https://automationexercise.com/product_details/' + i)
+                break;
+            }
+        }
+    }
+
+    async validateProductDetail() {
+        const productName = await this.dressName.textContent();
+        const price = await this.price.nth(1).textContent();
+        const brandName = await this.brandName.textContent();
+        console.log(`productName ${productName} price ${price} brandName ${brandName}`)
+    }
 
 }
 
