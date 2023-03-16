@@ -1,8 +1,7 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 const { POManager } = require('../../pages/POManager');
-const { testConfig } = require('../../Data/login_data');
-const { Orderdata } = require('../../Data/orderData');
+const { ContactForm } = require('../../Data/ContactForm');
 
 //const { testConfig } = require('./Data/login_data');
 
@@ -21,6 +20,7 @@ test.describe('Test Case 6: Contact Us Form', () => {
         contactFormPage.verifyContactFormBtn();
     });
 
+    //to block ads 
     test('Validate the ContactUs Form', async ({ page }) => {
         await page.goto('/');
         await page.route("**/*", (request) => {
@@ -37,10 +37,10 @@ test.describe('Test Case 6: Contact Us Form', () => {
         poManager = new POManager(page);
         contactFormPage = poManager.getContacFormPage();
         await contactFormPage.clickContactFormBtn();
-        await contactFormPage.fillContactUsForm("Chetan", "test@gmail.com", "test", "test body", "Upload_Files/test_practice_logo.png");
+        await contactFormPage.fillContactUsForm(ContactForm.Name, ContactForm.Email, ContactForm.Subject, ContactForm.MessageBody, ContactForm.filePath);
 
         await contactFormPage.clickSubmitButton();
-        await contactFormPage.validateSucessMessage("Success! Your details have been submitted successfully.");
+        await contactFormPage.validateSucessMessage(ContactForm.successMessage);
         await contactFormPage.clickHomeBtn();
 
     });
