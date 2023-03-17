@@ -62,10 +62,7 @@ test.describe('Smoke Suit', () => {
         const loginpage = poManager.getLoginPage();
         const dashboardPage = poManager.getDashboardPage();
         const cartPage = poManager.getCartPage();
-
-
         await loginpage.navigateToUrl(testConfig.url);
-
         await dashboardPage.searchProduct(Orderdata.productName);
         await dashboardPage.navigateToCart();
         await cartPage.verifyProductIsDisplayed(Orderdata.productName);

@@ -5,7 +5,7 @@ const { PlaywrightBlocker } = require('@cliqz/adblocker-playwright')
 import fetch from 'cross-fetch';
 
 let responseBody;
-let productIndex = 10;
+let productIndex = 11;
 let ProductName;
 let price;
 let brand;
@@ -25,7 +25,7 @@ test.beforeAll(async ({ request }) => {
 
 
 
-test.describe('Test Case 8: Validate Product Page', () => {
+test.describe('@smoke Test Case 8: Validate Product Page', () => {
     let poManager;
     let productsPage;
     const url = "https://automationexercise.com/products";
@@ -40,13 +40,6 @@ test.describe('Test Case 8: Validate Product Page', () => {
         PlaywrightBlocker.fromPrebuiltAdsAndTracking(fetch).then((blocker) => {
             blocker.enableBlockingInPage(page);
         });
-        // /*await page.route("**/*", (request) => {
-        /*  request.request().url().startsWith("https://pagead2.googlesyndication.com")
-              ? request.abort()
-              : request.continue();
-          return;
-      });*/
-        productsPage.validateSaleBanner();
         productsPage.validateProductCount(34);
     });
 
@@ -55,7 +48,6 @@ test.describe('Test Case 8: Validate Product Page', () => {
 
         poManager = new POManager(page);
         productsPage = poManager.getProductsPage();
-        //apiData = poManager.getAPIData();
         await page.goto(url);
         /* const ProductName = await responseBody.products[0].ProductName;
          console.log("ProductName --> " + ProductName)*/
@@ -80,7 +72,7 @@ test.describe('Test Case 8: Validate Product Page', () => {
     })
 
     //test with test.step
-    test.only("Verify all the products related to search are visible", async ({ page }) => {
+    test("Verify all the products related to search are visible", async ({ page }) => {
         poManager = new POManager(page);
         productsPage = poManager.getProductsPage();
 

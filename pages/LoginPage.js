@@ -1,5 +1,7 @@
 // @ts-check
 const { expect } = require('@playwright/test');
+const { PlaywrightBlocker } = require('@cliqz/adblocker-playwright')
+import fetch from 'cross-fetch';
 class LoginPage {
 
     constructor(page) {
@@ -37,5 +39,16 @@ class LoginPage {
         expect(await this.logo.screenshot()).toMatchSnapshot('test_practice_logo.png');
     }
 
+    async waitForSomeTime(timeInSeconds) {
+        console.log('Additional Wait for ' + timeInSeconds + ' seconds.');
+        await new Promise(resolve => setTimeout(resolve, (timeInSeconds * 1000)));
+    }
+
+    async adsBlocker() {
+        PlaywrightBlocker.fromPrebuiltAdsAndTracking(fetch).then((blocker) => {
+            blocker.enableBlockingInPage(this.page);
+        })
+
+    }
 }
 module.exports = { LoginPage }

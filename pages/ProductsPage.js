@@ -8,7 +8,6 @@ class ProductsPage {
     constructor(page, request) {
         this.page = page;
         this.request = request;
-        // this.ClickOnProducts = page.getByRole('link', { name: ' Products' });
         this.ClickOnProducts = page.getByText("Products");
         this.products = page.locator("//div[@id='cartModal']/following-sibling::div");
         this.saleBanner = page.locator("#sale_image");

@@ -9,7 +9,7 @@ const { ContactForm } = require('../../Data/ContactForm');
     await page.goto('/');
 })*/
 
-test.describe('Test Case 6: Contact Us Form', () => {
+test.describe('@smoke Test Case 6: Contact Us Form', () => {
     let poManager;
     let contactFormPage;
 
@@ -38,7 +38,6 @@ test.describe('Test Case 6: Contact Us Form', () => {
         contactFormPage = poManager.getContacFormPage();
         await contactFormPage.clickContactFormBtn();
         await contactFormPage.fillContactUsForm(ContactForm.Name, ContactForm.Email, ContactForm.Subject, ContactForm.MessageBody, ContactForm.filePath);
-
         await contactFormPage.clickSubmitButton();
         await contactFormPage.validateSucessMessage(ContactForm.successMessage);
         await contactFormPage.clickHomeBtn();

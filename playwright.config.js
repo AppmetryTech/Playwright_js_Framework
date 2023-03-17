@@ -1,6 +1,13 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
 import dotenv from 'dotenv';
+import { testConfig } from './testConfig';
+const ENV = process.env.ENV;
+
+if (!ENV || ![`qa`, `dev`, `qaApi`, `devApi`].includes(ENV)) {
+  console.log(`Please provide a correct environment value like "npx cross-env ENV=qa|dev|qaApi|devApi"`);
+  process.exit();
+}
 
 dotenv.config();
 
@@ -45,88 +52,160 @@ module.exports = defineConfig({
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    baseURL: 'https://automationexercise.com/',
-    // storageState: 'state.json',
+    // baseURL: 'https://automationexercise.com/',
+     baseURL: testConfig[process.env.ENV],
+    storageState: 'state.json',
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     //channel: 'firefox',
     actionTimeout: 0,
     launchOptions: {
       slowMo: 2000,
       devtools: false,
-     
-    },
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://localhost:3000',
 
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    },
+
     trace: 'on-first-retry',
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
+      name: `Chrome`,
       use: {
-        ...devices['Desktop Chrome'],
-        headless: false,
+        // Configure the browser to use.
+        browserName: `chromium`,
+
+        //Chrome Browser Config
+        channel: `chrome`,
+
+        //Picks Base Url based on User input
+        baseURL: testConfig[process.env.ENV],
         storageState: 'state.json',
-        screenshot: 'on',
-        viewport: { width: 1536, height: 792 },
-        video: `on`,
 
+        //Browser Mode
+        headless: false,
 
+        //Browser height and width
+        viewport: { width: 1500, height: 730 },
+        ignoreHTTPSErrors: true,
+
+        //Enable File Downloads in Chrome
+        acceptDownloads: true,
+
+        //Artifacts
+        screenshot: `only-on-failure`,
+        video: `retain-on-failure`,
+        trace: `retain-on-failure`,
+
+        //Slows down execution by ms
+        launchOptions: {
+          slowMo: 0
+        }
+      },
+    },
+    {
+      name: `Chromium`,
+      use: {
+        browserName: `chromium`,
+        baseURL: testConfig[process.env.ENV],
+        storageState: 'state.json',
+        headless: false,
+        viewport: { width: 1500, height: 730 },
+        ignoreHTTPSErrors: true,
+        acceptDownloads: true,
+        screenshot: `only-on-failure`,
+        video: `retain-on-failure`,
+        trace: `retain-on-failure`,
+        launchOptions: {
+          slowMo: 0
+        }
       },
     },
 
-    /*  {
-        name: 'firefox',
-        use: {
-          ...devices['Desktop Firefox'],
-          headless: false,
-          storageState: 'state.json',
-          viewport: { width: 1536, height: 792 },
-          ignoreHTTPSErrors: true,
-          acceptDownloads: true,
-          screenshot: 'only-on-failure',
-          video: `retain-on-failure`,
-          trace: `retain-on-failure`,
-        },
-      },*/
-
-    /*{
-      name: 'webkit',
+    {
+      name: `Firefox`,
       use: {
-        ...devices['Desktop Safari'],
+        browserName: `firefox`,
+        baseURL: testConfig[process.env.ENV],
+        storageState: 'state.json',
         headless: false,
-        screenshot: 'only-on-failure',
-        viewport: { width: 1536, height: 792 }
+        viewport: { width: 1500, height: 730 },
+        ignoreHTTPSErrors: true,
+        acceptDownloads: true,
+        screenshot: `only-on-failure`,
+        video: `retain-on-failure`,
+        trace: `retain-on-failure`,
+        launchOptions: {
+          slowMo: 0
+        }
       },
-    },*/
+    },
 
-    /* Test against mobile viewports. */
-    /*{
-      name: 'Mobile Chrome',
+    {
+      name: `Edge`,
       use: {
-        ...devices['iPhone 13 Pro Max'],
+        browserName: `chromium`,
+        channel: `msedge`,
+        baseURL: testConfig[process.env.ENV],
+        storageState: 'state.json',
         headless: false,
-        screenshot: 'on'
+        viewport: { width: 1500, height: 730 },
+        ignoreHTTPSErrors: true,
+        acceptDownloads: true,
+        screenshot: `only-on-failure`,
+        video: `retain-on-failure`,
+        trace: `retain-on-failure`,
+        launchOptions: {
+          slowMo: 0
+        }
       },
-    },*/
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
+    },
+    {
+      name: `WebKit`,
+      use: {
+        browserName: `webkit`,
+        baseURL: testConfig[process.env.ENV],
+        storageState: 'state.json',
+        headless: false,
+        viewport: { width: 1500, height: 730 },
+        ignoreHTTPSErrors: true,
+        acceptDownloads: true,
+        screenshot: `only-on-failure`,
+        video: `retain-on-failure`,
+        trace: `retain-on-failure`,
+        launchOptions: {
+          slowMo: 0
+        }
+      },
+    },
+    {
+      name: `Device`,
+      use: {
+        ...devices[`Pixel 4a (5G)`],
+        browserName: `chromium`,
+        channel: `chrome`,
+        baseURL: testConfig[process.env.ENV],
+        storageState: 'state.json',
+        headless: false,
+        ignoreHTTPSErrors: true,
+        acceptDownloads: true,
+        screenshot: `only-on-failure`,
+        video: `retain-on-failure`,
+        trace: `retain-on-failure`,
+        launchOptions: {
+          slowMo: 0
+        }
+      },
+    },
 
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { channel: 'chrome' },
-    // },
+    {
+      name: `API`,
+      use: {
+        baseURL: testConfig[process.env.ENV]
+      }
+    }
   ],
+
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',

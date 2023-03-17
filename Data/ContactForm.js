@@ -4,7 +4,7 @@ export const ContactForm = {
     Subject: "Test subject line",
     MessageBody: "Test message body",
     filePath: "Upload_Files/test_practice_logo.png",
-    successMessage: "Success! Your details have been submitted successfully",
-   
+    successMessage: "Success! Your details have been submitted successfully.",
+
 
 }
