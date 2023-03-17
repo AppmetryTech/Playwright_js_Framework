@@ -52,7 +52,7 @@ module.exports = defineConfig({
     actionTimeout: 0,
     launchOptions: {
       slowMo: 2000,
-      devtools: true,
+      devtools: false,
      
     },
     /* Base URL to use in actions like `await page.goto('/')`. */

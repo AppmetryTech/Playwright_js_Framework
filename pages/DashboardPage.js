@@ -6,7 +6,6 @@ class DashboardPage {
     constructor(page) {
         this.page = page;
         this.products = page.locator("//div[@class='features_items']//div[@class='productinfo text-center']");
-        //this.productsText = this.products.locator("//div[@class='productinfo text-center']//p");
         this.viewCart = page.locator("//u[text()='View Cart']");
 
 
@@ -29,6 +28,10 @@ class DashboardPage {
             }
         }
 
+    }
+
+    async verifySearchProduct() {
+       
     }
 
     async navigateToCart() {
