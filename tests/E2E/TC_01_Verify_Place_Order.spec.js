@@ -22,7 +22,7 @@ test.describe('@e2e Scenario:-> Verify Purchase Order', () => {
         })
     }
 
-    test.only("TC_02 PlaceOrder", async ({ page }) => {
+    test.only("TC_02 Validate PlaceOrder", async ({ page }) => {
         const poManager = new POManager(page);
         const loginpage = poManager.getLoginPage();
         const dashboardPage = poManager.getDashboardPage();

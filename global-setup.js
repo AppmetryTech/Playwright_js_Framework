@@ -1,5 +1,5 @@
 // global-setup.js
-const { firefox, chromium } = require('@playwright/test');
+const { chromium } = require('@playwright/test');
 const { POManager } = require('./pages/POManager');
 const { testConfig } = require('./Data/login_data');
 const fs = require('fs-extra');
@@ -21,9 +21,9 @@ module.exports = async config => {
     await loginpage.validateLogin(testConfig.username, testConfig.password)
     await context.storageState({ path: storageState });
     await fs.rm(folderPath, { recursive: true, force: true });
-   /* await context.tracing.stop({
-      path: './test-results/setup-trace.zip',
-    })*/
+    /* await context.tracing.stop({
+       path: './test-results/setup-trace.zip',
+     })*/
 
     await browser.close();
   } catch (error) {
