@@ -1,3 +1,0 @@
-No of Product -->34
-Blue Top
-Locator@h4:has-text('Blue Top')

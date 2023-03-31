@@ -17,21 +17,7 @@ test('amazon prime login', async ({ browser }) => {
     const context = await browser.newContext({ storageState: 'auth.json' });
     const page = await context.newPage();
     await page.goto('https://www.primevideo.com/');
-    /* await page.getByRole('button', { name: 'Sign in to join Prime' }).click();
-     await page.getByLabel('Email or mobile phone number').click();
-     await page.getByLabel('Email or mobile phone number').fill('your mobile number');
-     await page.getByLabel('Password').click();
-     await page.getByLabel('Password').press('CapsLock');
-     await page.getByLabel('Password').fill('S');
-     await page.getByLabel('Password').press('CapsLock');
-     await page.getByLabel('Password').fill('****** ');
-     await page.getByLabel('Keep me signed in.\n          \n            \n              Details').check();
-     await page.getByRole('button', { name: 'Sign in' }).click();
-     await page.getByLabel('Don\'t require OTP on this browser').check();
-     await page.getByLabel('Enter OTP:').click();
-     await page.getByLabel('Enter OTP:').fill('333460');
-     await page.getByRole('button', { name: 'Sign in' }).click();*/
-    // Wait for carousel to load
+
     await page.waitForSelector('//ul[@class="_70Gje9 Jy2YJ6"]//li');
 
     // Get carousel items

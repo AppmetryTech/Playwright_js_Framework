@@ -8,7 +8,7 @@ const { ContactForm } = require('../../Data/ContactForm');
 /*test.beforeAll(async ({ browser }) => {
     await page.goto('/');
 })*/
-
+test.describe.configure({ mode: 'serial' });
 test.describe('@smoke Test Case 6: Contact Us Form', () => {
     let poManager;
     let contactFormPage;
@@ -29,11 +29,7 @@ test.describe('@smoke Test Case 6: Contact Us Form', () => {
                 : request.continue();
             return;
         });
-        //   await page.route("**", (request) => {*/
-        /*     console.log(request.request().url())
-             request.continue();
-             return;
-           });*/
+
         poManager = new POManager(page);
         contactFormPage = poManager.getContacFormPage();
         await contactFormPage.clickContactFormBtn();

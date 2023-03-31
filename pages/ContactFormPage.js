@@ -12,7 +12,6 @@ class ContactFormPage {
         this.EnterSubject = page.locator("input[data-qa='subject']");
         this.EnterMessage = page.locator("textarea.form-control");
         this.ClickUploadFileBtn = page.locator('input[name="upload_file"]');
-
         this.SubmitBtn = page.locator("//input[@value='Submit']");
         this.SucessMessage = page.locator('div.status.alert');
         this.HomeBtn = page.locator("//span[text()=' Home']");
@@ -28,10 +27,8 @@ class ContactFormPage {
     }
 
     async clickSubmitButton() {
-
         await this.page.on('dialog', dialog => dialog.accept());
         await this.SubmitBtn.click()
-
     }
 
     async fillContactUsForm(name, email, subject, messageBody, filePath) {
@@ -47,7 +44,6 @@ class ContactFormPage {
         const sucessMesssage = await this.SucessMessage.textContent();
         console.log(sucessMesssage);
         expect(sucessMesssage).toBe(exp_sucess_message)
-
     }
 
     async clickHomeBtn() {

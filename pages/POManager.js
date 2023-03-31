@@ -21,45 +21,25 @@ class POManager {
         this.contactFormPage = new ContactFormPage(this.page)
         this.productsPage = new ProductsPage(this.page)
         this.apiDataPage = new ApiDataPage(this.request)
-
     }
 
-    getLoginPage() {
-        return this.loginPage;
-    }
+    getLoginPage() { return this.loginPage; }
 
-    getDashboardPage() {
-        return this.dashboardPage;
-    }
+    getDashboardPage() { return this.dashboardPage; }
 
-    getCartPage() {
-        return this.cartpage;
-    }
+    getCartPage() { return this.cartpage; }
 
-    getCheckOutPage() {
-        return this.CheckOutPage;
-    }
+    getCheckOutPage() { return this.CheckOutPage }
 
-    getPaymentPage() {
-        return this.paymentPage;
-    }
+    getPaymentPage() { return this.paymentPage; }
 
-    getContacFormPage() {
-        return this.contactFormPage;
-    }
+    getContacFormPage() { return this.contactFormPage; }
 
-    getConfirmationPage() {
-        return this.confirmationPage;
-    }
+    getConfirmationPage() { return this.confirmationPage; }
 
-    getProductsPage() {
-        return this.productsPage;
-    }
+    getProductsPage() { return this.productsPage; }
 
-    getAPIData() {
-        return this.apiDataPage;
-    }
-
+    getAPIData() { return this.apiDataPage; }
 
 }
 module.exports = { POManager };

@@ -1,6 +1,5 @@
 // @ts-check
-const { test, expect } = require('@playwright/test');
-
+const { expect } = require('@playwright/test');
 class PaymentPage {
     constructor(page) {
         this.page = page;
@@ -11,7 +10,6 @@ class PaymentPage {
         this.EnterYear = page.locator("input[name='expiry_year']");
         this.payBtn = page.locator("button.form-control.btn");
     }
-
     async enterPaymentDetail(NameOnCard, CardNumber, CVC, ExpiryMonth, Year) {
         await this.EnterName.fill(NameOnCard);
         await this.EnterCardNumber.fill(CardNumber)
@@ -19,17 +17,9 @@ class PaymentPage {
         await this.EnterExpiry.fill(ExpiryMonth)
         await this.EnterYear.fill(Year)
     }
-
     async clickOnPlaceOrder() {
         expect(await this.payBtn.isVisible()).toBeTruthy();
         await this.payBtn.click();
     }
-
-
-
-
-
-
-
 }
 module.exports = { PaymentPage };

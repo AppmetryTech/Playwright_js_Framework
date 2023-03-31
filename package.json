@@ -4,21 +4,21 @@
   "description": "This project uses Playwright and the Page Object Model (POM) framework to perform end-to-end testing on web applications. It includes web testing, API testing and visual testing.",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test",
-    "single": "npx playwright test login_state.spec.js",
-    "test:single": "npx playwright test TC_08_Verify_All_Products_and_product_detail_page.spec.js --project=Chrome",
-    "test:parallel": "npx playwright test --grep @Smoke --project=Chrome",
-    "test:serial": "npx playwright test --grep @Smoke --workers=1 --project=Chrome",
+    "test": "npx cross-env ENV=qa npx playwright test",
+    "single": "npx cross-env ENV=qa npx playwright test login_state.spec.js",
+    "test:TC01": "npx cross-env ENV=qa npx playwright test TC_01_Verify_Place_Order.spec --project=Chrome",
+    "test:single": "npx cross-env ENV=qa npx playwright test TC_02_Verify_All_Products.spec.js --project=Chrome",
+    "test:parallel": "npx cross-env ENV=qa npx playwright test --grep @e2e --project=Chrome",
+    "test:serial": "npx cross-env ENV=qa npx playwright test --grep @e2e --workers=1 --project=Chrome",
+    "test:e2e": "npx cross-env ENV=qa npx playwright test --grep @e2e --workers=3 --project=Chrome",
     "test:api": "npx playwright test --grep @API --workers=1 --project=Chrome",
     "test:record": "npx playwright codegen https://automationexercise.com",
     "test:visual": "npx playwright test VerifyLogo.spec.js --project=Chrome",
-    "test:device": "npx playwright test TC_08_Verify_All_Products_and_product_detail_page.spec.js --project=Device",
+    "test:device": "npx playwright test TC_02_Verify_All_Products.spec.js --project=Device",
     "api": "npx playwright test test_api.spec.js",
     "report": "npx playwright show-report",
     "debug": "npx playwright test TC_01_Login_User.spec.js --debug",
-    "task": "npx playwright test videoCarousel.spec.js",
-    "multidata": "npx playwright test multi_data_test.spec.js",
-    "test:e2e": "npx playwright test --grep @e2e --workers=1 --project=Chrome"
+    "multidata": "npx playwright test multi_data_test.spec.js"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,10 @@
   },
   "dependencies": {
     "@cliqz/adblocker-playwright": "^1.26.2",
+    "adm-zip": "^0.5.10",
     "cross-fetch": "^3.1.5",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "fs-extra": "^11.1.1",
+    "rimraf": "^4.4.1"
   }
 }

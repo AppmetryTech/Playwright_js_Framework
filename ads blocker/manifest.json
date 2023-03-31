@@ -1,0 +1,10 @@
+{
+  "name": "Automation_Ads_Blocker",
+  "version": "1.0",
+  "description": "Blocks ads on webpages",
+  "permissions": ["webRequest", "webRequestBlocking", "tabs"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "manifest_version": 2
+}

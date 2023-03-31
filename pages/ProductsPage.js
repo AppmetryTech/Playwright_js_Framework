@@ -4,7 +4,6 @@ const { PlaywrightBlocker } = require('@cliqz/adblocker-playwright')
 import fetch from 'cross-fetch';
 
 class ProductsPage {
-
     constructor(page, request) {
         this.page = page;
         this.request = request;
@@ -19,18 +18,13 @@ class ProductsPage {
         this.searchBox = page.locator("#search_product");
         this.submitSearch = page.locator("#submit_search");
     }
-
     async navigateToProductsPage() {
         await this.page.goto("https://automationexercise.com/products");
-
-
     }
 
     async validateSaleBanner() {
         await this.saleBanner.waitFor();
-
         expect(await this.saleBanner.screenshot()).toMatchSnapshot('VisualTestData/sale_banner.jpg');
-
     }
 
     async validateProductCount(ExpectedProductCount) {
@@ -42,7 +36,6 @@ class ProductsPage {
     async validateData(apiData) {
         const productCount = await this.productName.count();
         console.log("ProductCount --> " + productCount)
-
         for (let i = 0; i < productCount; i++) {
             const apiItem = await apiData.products[i].name;
             const rowText = await this.productName.nth(i).textContent();
@@ -61,16 +54,13 @@ class ProductsPage {
         const productCount = await this.productName.count();
         console.log("ProductCount --> " + productCount)
         for (let i = 0; i < productCount; i++) {
-
             const rowText = await this.productName.nth(i).textContent();
             console.log(`--UI TEXT-- ${rowText}`)
             expect(rowText).toBe(ProductName);
         }
-
     }
 
     async clickOnViewProduct(ProductName) {
-
         const count = await this.productName.count();
         console.log(`view product count ${await this.viewProduct.count()}`)
         console.log("No of Product -->" + count);
@@ -96,9 +86,6 @@ class ProductsPage {
             blocker.enableBlockingInPage(this.page);
         })
     }
-
-
-
 }
 
 module.exports = { ProductsPage }

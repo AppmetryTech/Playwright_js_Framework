@@ -1,0 +1,35 @@
+ProductCount --> 34
+--UI TEXT-- Blue Top  --API TEXT--  Blue Top
+--UI TEXT-- Men Tshirt  --API TEXT--  Men Tshirt
+--UI TEXT-- Sleeveless Dress  --API TEXT--  Sleeveless Dress
+--UI TEXT-- Stylish Dress  --API TEXT--  Stylish Dress
+--UI TEXT-- Winter Top  --API TEXT--  Winter Top
+--UI TEXT-- Summer White Top  --API TEXT--  Summer White Top
+--UI TEXT-- Madame Top For Women  --API TEXT--  Madame Top For Women
+--UI TEXT-- Fancy Green Top  --API TEXT--  Fancy Green Top
+--UI TEXT-- Sleeves Printed Top - White  --API TEXT--  Sleeves Printed Top - White
+--UI TEXT-- Half Sleeves Top Schiffli Detailing - Pink  --API TEXT--  Half Sleeves Top Schiffli Detailing - Pink
+--UI TEXT-- Frozen Tops For Kids  --API TEXT--  Frozen Tops For Kids
+--UI TEXT-- Full Sleeves Top Cherry - Pink  --API TEXT--  Full Sleeves Top Cherry - Pink
+--UI TEXT-- Printed Off Shoulder Top - White  --API TEXT--  Printed Off Shoulder Top - White
+--UI TEXT-- Sleeves Top and Short - Blue & Pink  --API TEXT--  Sleeves Top and Short - Blue & Pink
+--UI TEXT-- Little Girls Mr. Panda Shirt  --API TEXT--  Little Girls Mr. Panda Shirt
+--UI TEXT-- Sleeveless Unicorn Patch Gown - Pink  --API TEXT--  Sleeveless Unicorn Patch Gown - Pink
+--UI TEXT-- Cotton Mull Embroidered Dress  --API TEXT--  Cotton Mull Embroidered Dress
+--UI TEXT-- Blue Cotton Indie Mickey Dress  --API TEXT--  Blue Cotton Indie Mickey Dress
+--UI TEXT-- Long Maxi Tulle Fancy Dress Up Outfits -Pink  --API TEXT--  Long Maxi Tulle Fancy Dress Up Outfits -Pink
+--UI TEXT-- Sleeveless Unicorn Print Fit & Flare Net Dress - Multi  --API TEXT--  Sleeveless Unicorn Print Fit & Flare Net Dress - Multi
+--UI TEXT-- Colour Blocked Shirt – Sky Blue  --API TEXT--  Colour Blocked Shirt – Sky Blue
+--UI TEXT-- Pure Cotton V-Neck T-Shirt  --API TEXT--  Pure Cotton V-Neck T-Shirt
+--UI TEXT-- Green Side Placket Detail T-Shirt  --API TEXT--  Green Side Placket Detail T-Shirt
+--UI TEXT-- Premium Polo T-Shirts  --API TEXT--  Premium Polo T-Shirts
+--UI TEXT-- Pure Cotton Neon Green Tshirt  --API TEXT--  Pure Cotton Neon Green Tshirt
+--UI TEXT-- Soft Stretch Jeans  --API TEXT--  Soft Stretch Jeans
+--UI TEXT-- Regular Fit Straight Jeans  --API TEXT--  Regular Fit Straight Jeans
+--UI TEXT-- Grunt Blue Slim Fit Jeans  --API TEXT--  Grunt Blue Slim Fit Jeans
+--UI TEXT-- Rose Pink Embroidered Maxi Dress  --API TEXT--  Rose Pink Embroidered Maxi Dress
+--UI TEXT-- Cotton Silk Hand Block Print Saree  --API TEXT--  Cotton Silk Hand Block Print Saree
+--UI TEXT-- Rust Red Linen Saree  --API TEXT--  Rust Red Linen Saree
+--UI TEXT-- Beautiful Peacock Blue Cotton Linen Saree  --API TEXT--  Beautiful Peacock Blue Cotton Linen Saree
+--UI TEXT-- Lace Top For Women  --API TEXT--  Lace Top For Women
+--UI TEXT-- GRAPHIC DESIGN MEN T SHIRT - BLUE  --API TEXT--  GRAPHIC DESIGN MEN T SHIRT - BLUE
