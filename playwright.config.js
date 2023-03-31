@@ -58,7 +58,7 @@ module.exports = defineConfig({
         channel: `chrome`,  //Chrome Browser Config
         baseURL: testConfig[process.env.ENV],  //Picks Base Url based on User input
         storageState: 'state.json',
-        headless: true,  //Browser Mode
+        headless: false,  //Browser Mode
         viewport: { width: 1500, height: 730 },   //Browser height and width
         ignoreHTTPSErrors: true,
         acceptDownloads: true,//Enable File Downloads in Chrome
