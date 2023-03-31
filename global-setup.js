@@ -13,9 +13,6 @@ module.exports = async config => {
   const page = await context.newPage();
   const poManager = new POManager(page);
   const loginpage = poManager.getLoginPage();
-  // Delete folder before each test run
-
-
   try {
     await loginpage.navigateToUrl(baseURL);
     await loginpage.validateLogin(testConfig.username, testConfig.password)
