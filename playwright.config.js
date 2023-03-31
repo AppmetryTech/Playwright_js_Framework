@@ -29,7 +29,7 @@ module.exports = defineConfig({
   forbidOnly: !!process.env.CI,   /* Fail the build on CI if you accidentally left test.only in the source code. */
   retries: process.env.CI ? 2 : 0,     /* Retry on CI only */
   workers: process.env.CI ? 1 : undefined,   /* Opt out of parallel tests on CI. */
-  reporter: [[`html`, { outputFolder: 'html-report', open: 'never' }], /* Reporter to use. See https://playwright.dev/docs/test-reporters */
+  reporter: [[`html`], /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   ["allure-playwright",
     {
       detail: true,

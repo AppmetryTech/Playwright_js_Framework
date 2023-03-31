@@ -2,10 +2,10 @@ const path = require('path');
 const AdmZip = require('adm-zip');
 
 async function globalTeardown() {
-    const reportPath = path.join(__dirname, 'html-report');
+    const reportPath = path.join(__dirname, 'playwright-report');
     const zip = new AdmZip();
-    zip.addLocalFolder(reportPath, './html-report');
-    zip.writeZip('./html-report.zip');
+    zip.addLocalFolder(reportPath, './playwright-reportt');
+    zip.writeZip('./playwright-report.zip');
 }
 
 module.exports = globalTeardown;
