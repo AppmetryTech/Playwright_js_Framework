@@ -2,14 +2,15 @@
 const { defineConfig, devices } = require('@playwright/test');
 import dotenv from 'dotenv';
 import { testConfig } from './testConfig';
-const ENV = process.env.ENV;
+let ENV = process.env.ENV;
 
 if (!ENV || ![`qa`, `qaApi`].includes(ENV)) {
-  console.log(`Please provide a correct environment value like "npx cross-env ENV=qa|dev|qaApi|devApi"`);
+  console.log(`Please provide a correct environment value like "npx cross-env ENV=qa|qaApi"`);
   process.exit();
 }
+ENV = `qa`,
 
-dotenv.config();
+  dotenv.config();
 /**
  * Read environment variables from file. * https://github.com/motdotla/dotenv*/
 // @see https://playwright.dev/docs/test-configuration

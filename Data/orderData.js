@@ -1,7 +1,7 @@
 export const Orderdata = {
     expectedUserName: "Chetan Motghare",
     productName: "Madame Top For Women",
-    ordererName: "Mr.Chetan Motghare",
+    ordererName: "Mr. Chetan Motghare",
     mobileNumber: "23415154123",
     nameOnCard: "Chetan",
     cardNumber: "6787134156",

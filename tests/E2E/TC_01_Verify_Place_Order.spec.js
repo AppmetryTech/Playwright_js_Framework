@@ -33,6 +33,7 @@ test.describe('@e2e Scenario:-> Verify Purchase Order', () => {
         PlaywrightBlocker.fromPrebuiltAdsAndTracking(fetch).then((blocker) => {
             blocker.enableBlockingInPage(page);
         })
+        console.log("start")
         await page.goto('/');
         await loginpage.waitForSomeTime(2);
         await dashboardPage.searchProduct(Orderdata.productName);
