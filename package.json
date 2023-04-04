@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npx cross-env ENV=qa npx playwright test",
     "single": "npx cross-env ENV=qa npx playwright test login_state.spec.js",
-    "test:TC01": "npx cross-env ENV=qa npx playwright test TC_01_Verify_Place_Order.spec. --ui",
+    "test:TC01": "npx cross-env ENV=qa npx playwright test TC_01_Verify_Place_Order.spec.js --project=Chrome",
     "test:single": "npx cross-env ENV=qa npx playwright test TC_02_Verify_All_Products.spec.js --project=Chrome",
     "test:parallel": "npx cross-env ENV=qa npx playwright test --grep @e2e --project=Chrome",
     "test:serial": "npx cross-env ENV=qa npx playwright test --grep @e2e --workers=1 --project=Chrome",
